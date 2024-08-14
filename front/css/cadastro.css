@@ -1,0 +1,80 @@
+html {
+    /* background-image: url(img/Login.svg);
+    position: absolute; */
+    /* font-family: "Nunito Sans", sans-serif; */
+    font-family: "Inter", sans-serif;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+h2 {
+    font-weight: 300;
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+.registro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    top: 130px;
+}
+
+input {
+    font-family: "Outfit", sans-serif;
+    color: #6D6A6A;
+    font-size: 20px;
+    width: 365px;
+    height: 46px;
+    border-radius: 15px;
+    padding: 5px;
+    border: solid 1.8px;
+    border-color: #6D6A6A;
+    outline: 0;
+}
+
+::placeholder {
+    font-family: "Outfit", sans-serif;
+    padding-left: 8px;
+}
+
+#handleSubmit {
+    padding: 5px;
+    border-radius: 15px;
+    width: 375px;
+    height: 46px;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: #FFC600;
+    color: #FFFFFF;
+    border: 0 none;
+    margin-top: 20px;
+}
+
+.ou {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    color: #A39797;
+    margin-top: 25px;
+}
+
+.texto {
+    font-size: 120%;
+}
+
+a {
+    margin-top: 20px;
+    font-size: 22px;
+    color: black;
+    font-weight: 450;
+}

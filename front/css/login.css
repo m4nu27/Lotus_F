@@ -1,0 +1,88 @@
+html {
+    /* background-image: url(img/Login.svg);
+    position: absolute; */
+    /* font-family: "Nunito Sans", sans-serif; */
+    font-family: "Inter", sans-serif;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+h2 {
+    font-weight: 300;
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+.registro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    top: 170px;
+}
+
+input {
+    color: #8944AB;
+    font-size: 20px;
+    width: 365px;
+    height: 46px;
+    border-radius: 25px;
+    padding: 5px;
+    border: solid 1.8px;
+    border-color: #8944AB;
+    outline: 0;
+    font-family: "Inter", sans-serif;
+}
+
+::placeholder {
+    font-family: "Inter", sans-serif;
+    padding-left: 8px;
+}
+
+.esqueciMinhaSenha{
+    margin-top: 8px;
+    margin-bottom: 24px;
+    font-size: 16px;
+    color: #8944AB;
+    font-weight: 450;
+}
+
+.cadastro {
+    padding: 5px;
+    border-radius: 20px;
+    width: 375px;
+    height: 46px;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: #8944AB;
+    color: #FFFFFF;
+    border: 0 none;
+    margin-top: 20px;
+}
+
+.ou {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    color: #A39797;
+    margin-top: 25px;   
+}
+
+.texto {
+    font-size: 120%;
+}
+
+.façaSeuCadastro {
+    margin-top: 24px;
+    font-size: 16px;
+    color: #8944AB;
+    font-weight: 450;
+}
