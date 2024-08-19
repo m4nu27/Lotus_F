@@ -18,14 +18,24 @@ body {
     text-align: center;
 }
 
+
 .lotus-image {
-    width: 50px;
-    margin-bottom: 20px;
+    /* width: 50px;
+    margin-bottom: 20px; */
+    max-width: 100%; /* Largura máxima será 100% da largura do contêiner */
+    height: auto; /* Altura será ajustada proporcionalmente */
+    position: fixed; /* Faz com que a imagem fique fixa no lugar */
+    top: 5%; /* Alinha a imagem ao topo da página */
+    left: 5%; /* Alinha a imagem à esquerda da página */
+    margin: 10px; /* Adiciona uma margem interna, para não grudar na borda */
 } 
 
 .boasVindasImg{
-    width: 80%;
-    height: 40%;
+    /* width: 80%;
+    height: 40%; */
+    width: 100%; /* A largura se ajustará ao tamanho do contêiner */
+    max-width: 500px; /* Largura máxima de 500px */
+    height: auto; /* Altura será ajustada proporcionalmente */
 }
 
 h1 {
@@ -53,7 +63,7 @@ p {
     background-color: #8e44ad;
 }
 
-button {
+/* button {
     background-color: #8e44ad;
     color: #f2f2f8;
     border: none;
@@ -63,4 +73,24 @@ button {
     cursor: pointer;
     display: flex;
     justify-content: flex-end;
-}
+} */
+
+.btn-next {
+    background-color: #8e44ad; /* Cor de fundo do botão */
+    color: #f2f2f8; /* Cor do texto */
+    padding: 12px 22px; /* Espaçamento interno */
+    border: none; /* Remove a borda padrão */
+    border-radius: 20px; /* Bordas arredondadas */
+    font-size: 16px; /* Tamanho do texto */
+    display: inline-flex; /* Alinha o texto e a seta na mesma linha */
+    align-items: center; /* Alinha verticalmente ao centro */
+    justify-content: center; /* Alinha horizontalmente ao centro */
+    cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+    position: fixed; /* Posiciona o botão em relação à janela de visualização */
+    bottom: 32px; /* Define a distância do botão em relação à parte inferior da página */
+    right: 32px; /* Define a distância do botão em relação ao lado direito da página */
+  }
+  
+  .arrow {
+    margin-left: 10px; /* Espaço entre o texto e a seta */
+  }
