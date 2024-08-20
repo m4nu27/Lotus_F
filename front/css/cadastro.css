@@ -1,21 +1,23 @@
-html {
-    /* background-image: url(img/Login.svg);
-    position: absolute; */
-    /* font-family: "Nunito Sans", sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
     font-family: "Inter", sans-serif;
+}
+
+.logoLogin{
+    margin-top: 0%;
+    margin-bottom: 3%;
 }
 
 h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
-}
-
-h2 {
-    font-weight: 300;
-    margin: 0;
-    margin-bottom: 15px;
+    margin-bottom: 24px;
 }
 
 .registro {
@@ -25,48 +27,40 @@ h2 {
     flex-direction: column;
     gap: 10px;
     position: relative;
-    top: 130px;
+    top: 170px;
 }
 
 input {
-    font-family: "Outfit", sans-serif;
-    color: #6D6A6A;
+    color: #8944AB;
     font-size: 20px;
     width: 365px;
     height: 46px;
-    border-radius: 15px;
+    border-radius: 25px;
     padding: 5px;
     border: solid 1.8px;
-    border-color: #6D6A6A;
+    border-color: #8944AB;
     outline: 0;
+    font-family: "Inter", sans-serif;
 }
 
 ::placeholder {
-    font-family: "Outfit", sans-serif;
+    font-family: "Inter", sans-serif;
     padding-left: 8px;
 }
 
-#handleSubmit {
+.cadastro {
     padding: 5px;
-    border-radius: 15px;
+    border-radius: 20px;
     width: 375px;
     height: 46px;
     font-size: 20px;
     font-weight: 600;
-    background-color: #FFC600;
-    color: #FFFFFF;
+    background-color: #8944AB;
+    color: #f2f2f8;
     border: 0 none;
     margin-top: 20px;
 }
 
-.ou {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    color: #A39797;
-    margin-top: 25px;
-}
 
 .texto {
     font-size: 120%;
@@ -77,4 +71,16 @@ a {
     font-size: 22px;
     color: black;
     font-weight: 450;
+}
+
+.façaSeuLogin {
+    margin-top: 24px;
+    font-size: 16px;
+    font-weight: 450;
+}
+
+.fazerLogin{
+    color: #8944AB;
+    margin-left: 5px;
+    font-size: 16px;
 }

@@ -7,10 +7,10 @@ const connection = mysql.createConnection({
     // password: process.env.db_password,
     // database: process.env.db_database,
     
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'db_Lotus',
+    HOST: 'localhost',
+    USER: 'root',
+    PASSWORD: 'root',
+    DATABASE: 'db_Lotus',
 
 })
 

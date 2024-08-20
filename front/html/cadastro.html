@@ -7,6 +7,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/front/css/cadastro.css">
         <title>Cadastro</title>
     </head>
 <body>
@@ -14,28 +15,19 @@
     </header>
     <main>
         <div class="registro">
-            <h1> Registro </h1>
-            <h2> Bem-vindo ! </h2>
+            <img class="logoLogin" src="/img/logo.png" alt="">
+            <h1> Crie sua conta </h1>
             <input type="text" placeholder="Nome" class="nome">
             <input type="date" placeholder="Data de Nascimento" class="data">
             <input type="email" placeholder="Email" class="email">
             <input type="password" placeholder="Senha" class="senha">
             <input type="text" placeholder="Psicólogo / Usuário" list="faixa" class="tipo_usuario">
+            <button type="button" class="cadastro"  onclick="login(event)"> Cadastrar </button>
                 <datalist id="faixa">
                     <option value="Psicólogo"></option>
                     <option value="Usuário"></option>
                 </datalist>
-                <!-- <a href="/front/html/home.html"> -->
-                    <button id="handleSubmit"> Cadastrar-se </button>
-                <!-- </a> -->
-                <!-- <div class="ou">
-                    <img src="/front/img/Vector 2 (2).jpg" alt="" srcset="">
-                        <span class="texto">
-                            ou
-                        </span>
-                    <img src="/front/img/Vector 2 (2).jpg" alt="" srcset="">
-                </div> -->
-                <a href="/front/html/login.html">Faça Login</a>
+                <p class="façaSeuLogin">Já possui uma conta?<a class="fazerLogin" href="/front/html/login.html">Faça seu login</a></p>
         </div>
     </main>
     <footer>
