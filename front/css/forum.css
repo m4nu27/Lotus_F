@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F7F7F7;
+    color: #555;
+}
+
+header {
+    background-color: #fff;
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #333;
+}
+
+.back-button {
+    color: #8D50C7;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+h1 {
+    font-size: 20px;
+    text-align: center;
+    flex-grow: 1;
+    margin-left: -50px; /* para centralizar corretamente o texto "Fórum" */
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+}
+
+.search-bar {
+    margin: 20px 15px;
+    position: relative;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px 45px 10px 15px;
+    border-radius: 20px;
+    border: 1px solid #C4C4C4;
+    font-size: 14px;
+    color: #555;
+}
+
+.mic-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+}
+
+.conversas {
+    margin: 0 15px;
+}
+
+.conversa-item {
+    background-color: #F9F1FF;
+    border: 2px solid #8D50C7;
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.conversa-item p {
+    font-size: 16px;
+    color: #8D50C7;
+    margin-bottom: 15px;
+}
+
+.conversa-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.heart-icon {
+    width: 20px;
+    height: 20px;
+}
+
+button {
+    background-color: #8D50C7;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #7D4FAF;
+}
+
+.new-conversation-btn {
+    background-color: #8D50C7;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 20px;
+    width: calc(100% - 30px);
+    font-size: 16px;
+    margin: 20px 15px;
+    text-align: center;
+}
+
+.bottom-nav {
+    background-color: #fff;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #ddd;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.nav-item {
+    text-align: center;
+    font-size: 12px;
+    color: #7D4FAF;
+    text-decoration: none;
+    flex-grow: 1;
+}
+
+.nav-item img {
+    width: 25px;
+    height: 25px;
+    margin-bottom: 5px;
+}
+
+.nav-item.active {
+    color: #8D50C7;
+}

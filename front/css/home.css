@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
-*{
+/**{
     margin: 0;
     padding: 0;
 }
@@ -119,4 +119,152 @@ footer div {
 footer div img {
     width: 30px;
     height: 30px;
+} */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F7F7F7;
+    color: #555;
+}
+
+header {
+    background-color: #fff;
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #333;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+h1 {
+    font-size: 20px;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+}
+
+main {
+    padding: 20px 15px;
+}
+
+.noticias, .registros, .links {
+    background-color: #E6C9EF;
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.noticias h2, .registros h2, .links h3 {
+    font-size: 18px;
+    color: #7D4FAF;
+}
+
+.noticia {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.noticia-img {
+    width: 70px;
+    height: 70px;
+    margin-right: 10px;
+}
+
+.noticia p {
+    font-size: 14px;
+    color: #fff;
+}
+
+button {
+    background-color: #8D50C7;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #7D4FAF;
+}
+
+.registros {
+    background-color: #F9F1FF;
+    border: 2px solid #8D50C7;
+}
+
+.registros p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.links {
+    display: flex;
+    gap: 10px;
+}
+
+.link-item {
+    background-color: #8D50C7;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1;
+    text-align: center;
+}
+
+.link-item h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.bottom-nav {
+    background-color: #fff;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #ddd;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.nav-item {
+    text-align: center;
+    font-size: 12px;
+    color: #7D4FAF;
+    text-decoration: none;
+}
+
+.nav-item img {
+    width: 25px;
+    height: 25px;
+    margin-bottom: 5px;
+}
+
+.nav-item.active {
+    color: #8D50C7;
 }

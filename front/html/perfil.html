@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="/front/css/perfil.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <a href="#" class="back-button">Voltar</a>
+            <h1>Perfil</h1>
+            <img src="lotus-icon.png" alt="Logo Lotus" class="logo">
+        </div>
+    </header>
+
+    <main>
+        <div class="profile-header">
+            <img src="profile-picture.png" alt="Foto de Perfil" class="profile-picture">
+            <h2>Giovana</h2>
+            <img src="settings-icon.png" alt="Configurações" class="settings-icon">
+        </div>
+
+        <section class="profile-details">
+            <div class="profile-item">
+                <label for="email">Email</label>
+                <input type="email" id="email" value="giovanabischoff@gmail.com" readonly>
+            </div>
+
+            <div class="profile-item">
+                <label for="senha">Senha</label>
+                <div class="password-container">
+                    <input type="password" id="senha" value="********" readonly>
+                    <img src="eye-icon.png" alt="Mostrar senha" class="eye-icon">
+                </div>
+            </div>
+
+            <div class="profile-item">
+                <label for="nascimento">Data de nascimento</label>
+                <input type="text" id="nascimento" value="30/11/1990" readonly>
+            </div>
+
+            <button class="edit-profile-btn">Editar perfil</button>
+        </section>
+
+        <section class="profile-links">
+            <div class="profile-link">
+                <h3>Psicólogos</h3>
+            </div>
+            <div class="profile-link">
+                <h3>Conversas</h3>
+            </div>
+        </section>
+    </main>
+
+    <nav class="bottom-nav">
+        <a href="#" class="nav-item">
+            <img src="icon-inicio.png" alt="Início">
+            Início
+        </a>
+        <a href="#" class="nav-item">
+            <img src="icon-forum.png" alt="Fórum">
+            Fórum
+        </a>
+        <a href="#" class="nav-item">
+            <img src="icon-psicologos.png" alt="Psicólogos">
+            Psicólogos
+        </a>
+        <a href="#" class="nav-item">
+            <img src="icon-duvidas.png" alt="Dúvidas">
+            Dúvidas
+        </a>
+        <a href="#" class="nav-item active">
+            <img src="icon-perfil.png" alt="Perfil">
+            Perfil
+        </a>
+    </nav>
+</body>
+</html>
