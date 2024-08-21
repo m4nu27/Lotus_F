@@ -1,37 +1,45 @@
-const connection = require("../config/db");
-const dotenv = require("dotenv").config();
-
-// LogIn / Buscar ID user (POST)
-
-async function logIn(request, response) {
-
-  const params = Array(
-    request.body.email,
-    request.body.password,
-    request.body.email,
-    request.body.password
-  );
-
-  const query =
-    "SELECT id, name, email, password, nome_empresa, 'user_empresa' AS origin FROM jobs.user_empresa WHERE email = ? AND password = ? UNION SELECT id, name, email, password, NULL AS nome_empresa, 'user_jovem' AS origin FROM jobs.user_jovem WHERE email = ? AND password = ?;";
-
-  connection.query(query, params, (err, results) => {
-    if (results) {
-      response.status(201).json({
-        sucess: true,
-        message: "Sucesso com a busca do usuário!!",
-        data: results,
-      });
-    } else {
-      response.status(400).json({
-        sucess: false,
-        message: "Ops, deu problemas com a busca do usuário!!",
-        data: err,
-      });
-    }
-  });
-}
-
+const connection = require('../config/db.js');
+const dotenv = require('dotenv').config();
+const { response } = require('express') // possível problema
+ 
+ 
+async function login(req, res) {
+ 
+    const params = Array(
+        req.body.email
+    )
+    console.log("email p/ cadastro:", req.body.email)
+ 
+    const query = "SELECT email, senha FROM usuario WHERE email = ?";
+    // const query = "SELECT email, senha, FROM cadastro_usuario WHERE email = ?";
+ 
+    connection.query(query, params, (err, results) => {
+        console.log(err, results)
+        if(results.length > 0) {
+            let senhaForms = req.body.senha
+            let senhaDb = results[0].senha
+ 
+            if (senhaDb === senhaForms)
+                console.log('Senha Correta!')  
+                res
+                    .status(200)
+                    .json({
+                        success: true,
+                        message: "Login feito com Sucesso",
+                        data: results[0]
+                });        
+            } else {
+                res
+                    .status(400)
+                    .json({
+                        success: false,
+                        message: "Verifique sua Senha",
+                        data: results
+                });  
+        }
+    });
+};
+ 
 module.exports = {
-  logIn
+    login
 }
