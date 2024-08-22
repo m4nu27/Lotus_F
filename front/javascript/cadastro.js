@@ -28,6 +28,8 @@ button.onclick = async function(e) {
 
         if (content.success) {
             alert("Sucesso"); 
+
+            window.location.href = "/front/html/login.html"
             
             // localStorage.setItem('id_user', content.data.id_user);
             // console.log(`ID do usuário armazenado: ${content.data.id_user}`);
