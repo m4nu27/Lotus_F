@@ -6,7 +6,8 @@ const { response } = require('express') // possível problema
 async function login(req, res) {
  
     const params = Array(
-        req.body.email
+        req.body.email,
+        req.body.senha
     )
     console.log("email p/ cadastro:", req.body.email)
  
@@ -19,14 +20,14 @@ async function login(req, res) {
             let senhaForms = req.body.senha
             let senhaDb = results[0].senha
  
-            if (senhaDb === senhaForms)
+            if (senhaDb === senhaForms){
                 console.log('Senha Correta!')  
                 res
                     .status(200)
                     .json({
                         success: true,
                         message: "Login feito com Sucesso",
-                        data: results[0]
+                       
                 });        
             } else {
                 res
@@ -37,6 +38,7 @@ async function login(req, res) {
                         data: results
                 });  
         }
+    }
     });
 };
  

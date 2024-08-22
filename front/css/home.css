@@ -1,126 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
-/**{
-    margin: 0;
-    padding: 0;
-}
-
-h1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    margin: 0;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-    color: #333;
-}
-header {
-    width: 100%;
-    padding: 10px 0;
-    text-align: center;
-    border-bottom: 1px solid #ccc;
-    position: relative;
-}
-header img {
-    position: absolute;
-    right: 20px;
-    top: 10px;
-    width: 30px;
-}
-.container {
-    width: 90%;
-    max-width: 400px;
-    margin-top: 20px;
-}
-.card_noticia {
-    background-color: #BA68C8;
-    border-radius: 20px;
-    padding: 20px;
-    margin-bottom: 20px;
-    color: white;
-}
-
-.card_registros {
-    background-color: #ba68c8;
-    border-width: 5px;
-    border-style: solid; 
-    border-color:  #8e44ad;
-    border-radius: 20px;
-    padding: 20px;
-    margin-bottom: 20px;
-    color: white;
-}
-
-.titleRegistros{
-    color: #f9f9f9;
-    font-size: 24px; 
-}
-.card img {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 10px;
-}
-.card h2 {
-    margin-bottom: 10px;
-    font-size: 18px;
-}
-.card p {
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-
-.verMais {
-    background-color: #8e44ad;
-    color: #f9f9f9;
-    border: none;
-    border-radius: 20px;
-    padding: 10px 40px;
-    font-size: 16px;
-    cursor: pointer;
-}
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
-.grid-item {
-    background-color: #d2a5d8;
-    border-radius: 10px;
-    padding: 20px;
-    color: white;
-    text-align: center;
-}
-footer {
-    width: 100%;
-    padding: 10px 0;
-    text-align: center;
-    border-top: 1px solid #ccc;
-    position: absolute;
-    bottom: 0;
-    display: flex;
-    justify-content: space-around;
-    background-color: #f9f9f9;
-}
-footer div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-footer div img {
-    width: 30px;
-    height: 30px;
-} */
-
 * {
     margin: 0;
     padding: 0;
@@ -128,14 +7,15 @@ footer div img {
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #F7F7F7;
+    background-color: #f2f2f8;
     color: #555;
 }
 
 header {
-    background-color: #fff;
+    background-color: #f2f2f8;
     padding: 10px 15px;
     border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
 .top-bar {
@@ -153,6 +33,15 @@ header {
     margin-top: 10px;
 }
 
+.noticias{
+    display: flex;
+    flex-direction: column;
+    background-color: #ba68c8;
+    padding: 15px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
 h1 {
     font-size: 20px;
 }
@@ -166,16 +55,10 @@ main {
     padding: 20px 15px;
 }
 
-.noticias, .registros, .links {
-    background-color: #E6C9EF;
-    padding: 15px;
-    border-radius: 15px;
-    margin-bottom: 20px;
-}
-
-.noticias h2, .registros h2, .links h3 {
-    font-size: 18px;
-    color: #7D4FAF;
+.noticias h2 {
+    font-size: 20px;
+    color: #f2f2f8;
+    margin-bottom: 6%;
 }
 
 .noticia {
@@ -185,14 +68,14 @@ main {
 }
 
 .noticia-img {
-    width: 70px;
-    height: 70px;
+    width: 32rem;
+    height: 8rem;
     margin-right: 10px;
 }
 
 .noticia p {
-    font-size: 14px;
-    color: #fff;
+    font-size: 16px;
+    color: #f2f2f8;
 }
 
 button {
@@ -206,37 +89,76 @@ button {
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #7D4FAF;
+.verMais {
+    align-self: flex-end;
+    background-color: #8944ab;
+    color: #f2f2f8;
+    border: none;
+    padding: 3%;
+    border-radius: 25px;
+    width: 40%;
+    font-size: 16px;
+    cursor: pointer;
 }
 
-.registros {
-    background-color: #F9F1FF;
+.registros{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Garante que o conteúdo e o botão sejam espaçados */
+    background-color: #f2f2f8;
     border: 2px solid #8D50C7;
+    padding: 15px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.registrar{
+    align-self: flex-end;
+    background-color: #8944ab;
+    color: #f2f2f8;
+    border: none;
+    padding: 3%;
+    border-radius: 25px;
+    width: 40%;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.registros h2{
+    font-size: 20px;
+    color: #BA68C8;
+    margin-bottom: 6%;
 }
 
 .registros p {
-    font-size: 14px;
-    color: #555;
+    font-size: 16px;
+    color: #ba68c8;
     margin-bottom: 10px;
 }
 
 .links {
+    border-radius: 15px;
+    margin-bottom: 200px;
     display: flex;
     gap: 10px;
 }
 
 .link-item {
-    background-color: #8D50C7;
-    color: white;
+    background-color: #8944ab;
+    color: #f2f2f8;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 20px;
     flex: 1;
     text-align: center;
+    width: 200px; 
+    height: 150px; 
+    display: inline-block; 
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
 }
 
 .link-item h3 {
-    font-size: 16px;
+    font-size: 20px;
     margin-bottom: 5px;
 }
 
