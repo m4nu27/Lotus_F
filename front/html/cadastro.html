@@ -17,17 +17,27 @@
         <div class="registro">
             <img class="logoLogin" src="/img/logo.png" alt="">
             <h1> Crie sua conta </h1>
+
+            <label for="nome">Nome Completo:</label>
             <input type="text" placeholder="Nome" class="nome">
+
+            <label for="dataNascimento">Data de nascimento:</label>
             <input type="date" placeholder="Data de Nascimento" class="data">
+            
+            <label for="email">Email:</label>
             <input type="email" placeholder="Email" class="email">
+           
+            <label for="senha">Senha:</label>
             <input type="password" placeholder="Senha" class="senha">
+            
+            <!-- <label for="escolha">Tipo:</label> -->
             <input type="text" placeholder="Psicólogo / Usuário" list="faixa" class="tipo_usuario">
             <button type="button" class="cadastro" id="handleSubmit"> Cadastrar </button>
                 <datalist id="faixa">
                     <option value="Psicólogo"></option>
                     <option value="Usuário"></option>
                 </datalist>
-                <p class="façaSeuLogin">Já possui uma conta?<a class="fazerLogin" href="/front/html/login.html">Faça seu login</a></p>
+            <p class="façaSeuLogin">Já possui uma conta?<a class="fazerLogin" href="/front/html/login.html">Faça seu login</a></p>
         </div>
     </main>
     <footer>

@@ -30,6 +30,13 @@ h1 {
     top: 170px;
 }
 
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #8944AB; /* Cor do texto do rótulo */
+    font-weight: bold; /* Deixa o rótulo em negrito */
+}
+
 input {
     color: #8944AB;
     font-size: 20px;

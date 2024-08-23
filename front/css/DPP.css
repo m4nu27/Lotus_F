@@ -19,14 +19,12 @@ body {
 }
 
 .lotus-image {
-  /* width: 50px;
-    margin-bottom: 20px; */
     max-width: 100%; /* Largura máxima será 100% da largura do contêiner */
     height: auto; /* Altura será ajustada proporcionalmente */
     position: fixed; /* Faz com que a imagem fique fixa no lugar */
-    top: 5%; /* Alinha a imagem ao topo da página */
+    top: 3%; /* Alinha a imagem ao topo da página */
     left: 5%; /* Alinha a imagem à esquerda da página */
-    margin: 10px; /* Adiciona uma margem interna, para não grudar na borda */
+    margin: 5px; /* Adiciona uma margem interna, para não grudar na borda */
 }
 
 .guidelineImg {
@@ -39,6 +37,7 @@ body {
 
 .container h1 {
     font-size: 24px;
+    margin-top: 80px;
     margin-bottom: 20px;
 }
 
