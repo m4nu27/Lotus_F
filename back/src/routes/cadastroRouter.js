@@ -1,10 +1,16 @@
-const {Router} = require('express')
+// Importa a função Router do Express, que permite criar rotas modulares e separadas para a aplicação
+const { Router } = require('express');
+
+// Cria uma nova instância para definir as rotas relacionadas a usuários
 const userRouter = Router();
 
+// Importa a função storeUser do controller do cadastro
 const { storeUser } = require('../controller/cadastroController');
 
+// Define uma rota POST para '/store/user', que chama a função storeUser quando a rota é acessada
+// Essa rota é usada para criar (armazenar) um novo usuário no banco de dados
 userRouter.post('/store/user', storeUser);
-// userRouter.get('/get/user', getUser);
 
-
+// Exporta o userRouter para que ele possa ser utilizado em outras partes da aplicação
+// Isso permite que as rotas definidas aqui sejam montadas no aplicativo principal
 module.exports = userRouter;
