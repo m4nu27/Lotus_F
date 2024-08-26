@@ -3,10 +3,11 @@ let button = document.getElementById("handleSubmit");
 
 // Define uma função assíncrona que será executada quando o botão for clicado
 button.onclick = async function(e) {
+
     // Previne o comportamento padrão do botão de recarregar a página ao ser clicado
     e.preventDefault(); 
 
-    // Coleta os valores dos campos de input do formulário usando seletores CSS
+    // Coleta os valores dos campos de input do formulário
     // Cada campo é identificado pela classe correspondente dentro do contêiner com classe 'registro'
     let nome = document.querySelector('.registro .nome').value; // Nome do usuário
     let data_nascimento = document.querySelector('.registro .data').value; // Data de nascimento

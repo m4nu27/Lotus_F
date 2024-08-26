@@ -39,7 +39,7 @@ async function storeUser(request, response) {
                 .json({
                     success: false,
                     message: "Ops, deu problema :(", 
-                    data: err                         // Detalhes do erro
+                    data: err                         
                 });
         }
     });

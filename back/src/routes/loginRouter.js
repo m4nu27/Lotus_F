@@ -4,7 +4,7 @@ const { Router } = require("express");
 // Cria uma nova instância do roteador para definir as rotas relacionadas ao login
 const router = Router();
 
-// Importa a função login docontroller de login
+// Importa a função login do controller de login
 // Essa função é responsável por lidar com a lógica de autenticação de usuários
 const { login } = require("../controller/loginController");
 

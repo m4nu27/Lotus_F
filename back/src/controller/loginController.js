@@ -5,7 +5,7 @@ const connection = require('../config/db.js');
 const dotenv = require('dotenv').config();
 
 // Importa a função `response` do express (embora não seja necessário neste contexto, pois `res` já é fornecido pela função de rota)
-const { response } = require('express'); // possível problema - isso pode ser removido, pois não está sendo utilizado
+const { response } = require('express');
 
 // Função assíncrona para realizar o login de um usuário
 async function login(req, res) {
@@ -28,7 +28,7 @@ async function login(req, res) {
         // Verifica se algum resultado foi retornado (ou seja, se o email existe no banco de dados)
         if(results.length > 0) {
             let senhaForms = req.body.senha; // Senha fornecida pelo usuário no formulário
-            let senhaDb = results[0].senha;  // Senha armazenada no banco de dados, o 0 acessa o primeiro usuário que tiver o resultado necessário
+            let senhaDb = results[0].senha;  // o 0 acessa o primeiro usuário que tiver o resultado necessário
 
             // Compara a senha fornecida pelo usuário com a senha armazenada no banco de dados
             if (senhaDb === senhaForms){
