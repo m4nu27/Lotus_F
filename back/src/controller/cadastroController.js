@@ -12,7 +12,7 @@ async function storeUser(request, response) {
         request.body.data_nascimento,   
         request.body.email,            
         request.body.senha,            
-        request.body.tipo_usuario,     
+        request.body.tipo_usuario,
     );
 
     // Query SQL para inserir um novo registro na tabela 'usuario'
@@ -20,7 +20,7 @@ async function storeUser(request, response) {
 
     // Executa a query SQL com os parâmetros fornecidos
     connection.query(query, params, (err, results) => {
-        console.log(err); // Loga qualquer erro que possa ocorrer durante a execução da query
+        console.log(err);
 
         if (results) {
             // Se a inserção foi bem-sucedida, responde com status 201 (Criado) e uma mensagem de sucesso
