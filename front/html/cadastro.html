@@ -30,13 +30,14 @@
             <label for="senha">Senha:</label>
             <input type="password" placeholder="Senha" class="senha">
             
-            <!-- <label for="escolha">Tipo:</label> -->
-            <input type="text" placeholder="Psicólogo / Usuário" list="faixa" class="tipo_usuario">
+            <label for="escolha">Tipo:</label>
+            <select name="" id="faixa" class="tipo_usuario">
+                <option value="Psicólogo">Psicólogo</option>
+                <option value="Usuário">Usuário</option>
+            </select>
+
+            
             <button type="button" class="cadastro" id="handleSubmit"> Cadastrar </button>
-                <datalist id="faixa">
-                    <option value="Psicólogo"></option>
-                    <option value="Usuário"></option>
-                </datalist>
             <p class="façaSeuLogin">Já possui uma conta?<a class="fazerLogin" href="/front/html/login.html">Faça seu login</a></p>
         </div>
     </main>

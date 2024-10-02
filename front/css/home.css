@@ -140,6 +140,7 @@ button {
     border-radius: 15px;
     margin-bottom: 200px;
     display: flex;
+    width: 50%;
     gap: 10px;
 }
 
