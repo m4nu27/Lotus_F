@@ -24,7 +24,7 @@ const renderCalendar = () => {
         
         let isToday = i === date.getDate() && currMonth === new Date().getMonth() 
                      && currYear === new Date().getFullYear() ? "active" : "";
-        liTag += `<li class="${isToday}">${i}</li>`;
+        liTag += `<li class="${isToday}" onclick="abrirDia(${i}, ${currMonth}, ${currYear})">${i}</li>`;
     }
 
     for (let i = lastDayofMonth; i < 6; i++) { 
@@ -51,3 +51,10 @@ prevNextIcon.forEach(icon => {
         renderCalendar();
     });
 });
+
+function abrirDia(dia, mes, ano) {
+    console.log("clicou", dia, mes, ano)
+
+    //abrir a modal
+    
+}
