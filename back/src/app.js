@@ -34,7 +34,6 @@ app.use('/api', userRouter);
 // Define que todas as rotas gerenciadas pelo loginRouter serão acessíveis a partir do caminho base '/api'
 app.use('/api', loginRouter);
 
-const express = require('express');
 const bodyParser = require('body-parser');
 const emocoesRouter = require('./routes/emocoesRouter');
 
@@ -45,8 +44,8 @@ app.use(bodyParser.json());
 app.use('/', emocoesRouter);
 
 // Inicia o servidor
-app.listen(3000, () => {
-    console.log('Servidor rodando na porta 3000');
+app.listen(3001, () => {
+    console.log('Servidor rodando na porta 3001');
 });
 
 

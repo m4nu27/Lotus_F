@@ -101,7 +101,16 @@ header .current-date{
   background: #f2f2f2;
 }
 
-.registro {
+/*gerado pelo gpt*/
+/* Destacar o dia selecionado */
+.selected-day {
+  background-color: #a68faf; /* Exemplo de cor de fundo */
+  color: white; /* Cor do texto */
+  border-radius: 50%; /* Para parecer um círculo */
+}
+
+
+.registroEmoji {
   background-color: white;
   padding: 20px;
   border-radius: 8px;
@@ -155,7 +164,7 @@ button {
   background-color: #8944ab;
   color: white;
   border: none;
-  border-radius: 17px;
+  border-radius: 20px;
   cursor: pointer;
   font-size: 18px;
 }
@@ -168,4 +177,16 @@ button:hover {
   margin-bottom: 15px;
   font-size: 1.2em;
   color: #333;
+}
+
+.fundo {
+  background-color: rgba(0, 0, 0, 0.559);
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  display: none;
+  position: fixed;
+  opacity: 1;
+  top: 0;
+  left: 0;
 }

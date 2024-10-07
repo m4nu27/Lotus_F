@@ -27,9 +27,9 @@ const renderCalendar = () => {
 
     // Preenche os dias do mês atual
     for (let i = 1; i <= lastDateofMonth; i++) {
-        let isToday = i === date.getDate() && currMonth === new Date().getMonth() 
+        let isToday = i === date.getDate() && currMonth === new Date().getMonth()
                      && currYear === new Date().getFullYear() ? "active" : "";
-        liTag += `<li class="${isToday}" onclick="abrirDia(${i}, ${currMonth}, ${currYear})">${i}</li>`;
+        liTag += `<li class="${isToday}" onclick="abrirDia(${i}, ${currMonth + 1}, ${currYear})">${i}</li>`;
     }
 
     // Preenche os primeiros dias do próximo mês que aparecem no calendário atual
@@ -62,9 +62,19 @@ prevNextIcon.forEach(icon => {
 
 // Função que é chamada ao clicar em um dia do calendário
 function abrirDia(dia, mes, ano) {
-    console.log("clicou", dia, mes, ano);
-    // Aqui você pode abrir a modal ou realizar outra ação ao selecionar o dia
+    // Exibe a div de registro de emoji
+    const registroEmoji = document.querySelector('.registroEmoji');
+    registroEmoji.style.display = 'block'; // Exibe a div
+    document.getElementById("dia").innerHTML = `Dia: ${dia}/${mes}/${ano}`
+
+    // Opcional: se quiser rolar a página até a div exibida
+    registroEmoji.scrollIntoView({ behavior: 'smooth' });
+
+    console.log("Dia selecionado:", dia, mes, ano);
 }
+
+
+document.getElementsByClassName('registroEmoji').style.display = "block" 
 
 // Emojis e observações
 const emojis = document.querySelectorAll('.emoji');
@@ -72,6 +82,16 @@ const selectedEmotion = document.getElementById('selected-emotion');
 const observations = document.getElementById('observations');
 const submitButton = document.getElementById('submit');
 let currentEmotion = '';
+
+const dia = document.querySelectorAll('.days');
+const quadro_emocoes = document.querySelectorAll('.registro');
+
+dia.onclick = function(){
+    quadro_emocoes.style.display = 'flex';
+    window.scrollTo(0, document.body.scrollHeight);
+    var fundo = document.getElementById('fundo');
+    fundo.style.display = 'block';
+}
 
 // Função para remover a seleção de todos os emojis
 function removeSelectedClass() {

@@ -1,4 +1,4 @@
-const connection = require('../database');
+const connection = require('../config/db');
 
 // Função para registrar emoção
 const registrarEmocao = (req, res) => {
