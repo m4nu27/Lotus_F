@@ -34,6 +34,24 @@ app.use('/api', userRouter);
 // Define que todas as rotas gerenciadas pelo loginRouter serão acessíveis a partir do caminho base '/api'
 app.use('/api', loginRouter);
 
+const express = require('express');
+const bodyParser = require('body-parser');
+const emocoesRouter = require('./routes/emocoesRouter');
+
+// Middleware para parsing de JSON
+app.use(bodyParser.json());
+
+// Usar as rotas de emoções
+app.use('/', emocoesRouter);
+
+// Inicia o servidor
+app.listen(3000, () => {
+    console.log('Servidor rodando na porta 3000');
+});
+
+
 // Exporta a instância do aplicativo Express para que ela possa ser usada em outros arquivos
 // Será usada no arquivo principal para iniciar o servidor e escutar as requisições
 module.exports = app;
+
+
