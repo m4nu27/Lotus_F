@@ -23,7 +23,7 @@ button.onclick = async function(e) {
 
     try {
         // Envia uma requisição POST para o servidor com os dados do usuário
-        const response = await fetch('http://localhost:3000/api/store/user', {
+        const response = await fetch('http://localhost:3005/api/store/user', {
             method: "POST", // Especifica que a requisição é do tipo POST
             headers: { "Content-Type": "application/json;charset=UTF-8" }, // Define o cabeçalho indicando que os dados estão em JSON
             body: JSON.stringify(data) // Converte o objeto `data` para uma string JSON antes de enviar
