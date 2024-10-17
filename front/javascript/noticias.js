@@ -5,8 +5,8 @@ const newsContainer = document.getElementById('news-container');
 async function fetchNews() {
     console.log("Tentando buscar notícias...");
     try {
-        // Refina a query para focar em 'depressão pós-parto' e outras variações
-        const url = `https://newsapi.org/v2/everything?q="depressão-pós-parto" OR "depressão materna" OR "depressão pós-natal"&language=pt&apiKey=${apiKey}`;
+        // Adiciona um timestamp à URL para evitar cache
+        const url = `https://newsapi.org/v2/everything?q="depressão-pós-parto" OR "depressão materna" OR "depressão pós-natal"&language=pt&apiKey=${apiKey}&_=${new Date().getTime()}`;
         const response = await fetch(url);
         if (!response.ok) {
             throw new Error(`Erro: ${response.statusText}`);
@@ -18,6 +18,7 @@ async function fetchNews() {
         console.error("Erro ao buscar as notícias:", error);
     }
 }
+
 
 // Botão de voltar
 const backButton = document.getElementById('back-button');
@@ -59,10 +60,10 @@ function displayNews(articles) {
 
 
 // Atualiza as notícias a cada 30 segundos
-setInterval(fetchNews, 30050)
+setInterval(fetchNews, 30000)
 
 // Testando o reload da tela
-//setInterval(displayNews, 30050)
+//setInterval(displayNews, 30090)
 
 // Chama a função pela primeira vez ao carregar a página
 fetchNews();

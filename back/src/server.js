@@ -9,7 +9,7 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
-const port = process.env.PORT || 3005
+const port = process.env.PORT || 3009
 require('dotenv').config()
 const swaggerUi = require("swagger-ui-express")
 const swaggerJsDoc = require("swagger-jsdoc")
@@ -23,7 +23,7 @@ const swaggerOptions = {
             version: "1.0.0",
             description: "API CRUD para gerenciar tarefas",
         },
-        servers: [{url: "http://localhost:3005"}],
+        servers: [{url: "http://localhost:3009"}],
     },
     apis: [`${__dirname}/routes/*.js`], //caminho para as rotas
 }

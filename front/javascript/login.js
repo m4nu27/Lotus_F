@@ -16,7 +16,7 @@ async function login(event) {
     console.log(data);
 
     // Envia uma requisição POST para o servidor, passando as credenciais de login do usuário
-    const response = await fetch('http://localhost:3005/api/post/login', {
+    const response = await fetch('http://localhost:3009/api/post/login', {
         method: "POST",
         headers: {
             "Content-Type": "application/json;charset=UTF-8" // Define o cabeçalho indicando que os dados estão em formato JSON
