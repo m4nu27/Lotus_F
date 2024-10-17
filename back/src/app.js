@@ -18,8 +18,8 @@ const loginRouter = require('./routes/loginRouter');
 const app = express();
 
 // Configura a porta na qual o servidor vai escutar as requisições
-// Ele usa a porta definida na variável de ambiente PORT, ou a porta 3009 como padrão se a variável não estiver definida
-app.set('port', process.env.PORT || 3009);
+// Ele usa a porta definida na variável de ambiente PORT, ou a porta 3020 como padrão se a variável não estiver definida
+app.set('port', process.env.PORT || 3020);
 
 // Habilita o uso de CORS na aplicação, permitindo que a API seja acessada a partir de diferentes domínios
 app.use(cors());
