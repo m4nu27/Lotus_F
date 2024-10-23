@@ -16,9 +16,13 @@ const { login } = require("../controller/loginController");
 // Isso permite que as rotas definidas aqui sejam montadas e acessadas no aplicativo principal
 module.exports = router;
 
+const {
+    taskLogin
+} = require('../controller/loginController')
+
 /**
  * @swagger
- * /tasks/register:
+ * /post/login:
  *  post:
  *    summary: Cadastra uma nova tarefa
  *    responses:
@@ -31,4 +35,4 @@ module.exports = router;
  *              items:
  *                type: object
  */
-router.post('/post/login', login);
+router.post('/post/login', taskLogin);

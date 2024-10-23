@@ -14,3 +14,24 @@ userRouter.post('/store/user', storeUser);
 // Exporta o userRouter para que ele possa ser utilizado em outras partes da aplicação
 // Isso permite que as rotas definidas aqui sejam montadas no aplicativo principal
 module.exports = userRouter;
+
+const {
+    taskCadastro
+} = require('../controller/cadastroController')
+
+/**
+ * @swagger
+ * /post/cadastro:
+ *  post:
+ *    summary: Cadastra uma nova tarefa
+ *    responses:
+ *      201:
+ *        description: Sucesso!
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                type: object
+ */
+router.post('/post/cadastro', taskCadastro);

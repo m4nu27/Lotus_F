@@ -43,7 +43,9 @@ header {
 }
 
 h1 {
+    color: #333;
     font-size: 20px;
+    margin-left: 43%;
 }
 
 .logo {

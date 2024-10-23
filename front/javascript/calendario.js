@@ -3,6 +3,12 @@ const daysTag = document.querySelector(".days"),
 currentDate = document.querySelector(".current-date"),
 prevNextIcon = document.querySelectorAll(".icons span");
 
+// Botão de voltar
+const backButton = document.getElementById('back-button');
+backButton.addEventListener('click', function() {
+    window.history.back();  // Volta para a página anterior
+});
+
 // Variáveis de controle de data
 let date = new Date(),
 currYear = date.getFullYear(),
