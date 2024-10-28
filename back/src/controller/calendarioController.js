@@ -1,4 +1,4 @@
-const connection = require('../config/db.js'); // Assumindo que você tem um arquivo de conexão com o banco de dados
+const connection = require('../config/db.js');
 
 // Função para registrar uma emoção
 async function registrarEmocao (request, response){
@@ -29,6 +29,36 @@ async function registrarEmocao (request, response){
     })
 };
 
+// exports.registrarEmocao = async (req, res) => {
+//     const { data, emocao, observacao } = req.body;
+
+//     try {
+//         const [result] = await db.execute(
+//             'INSERT INTO emocoes (data, emocao, observacao) VALUES (?, ?, ?)',
+//             [data, emocao, observacao]
+//         );
+//         res.status(201).json({ message: 'Emoção registrada com sucesso!' });
+//     } catch (error) {
+//         console.error(error);
+//         res.status(500).json({ message: 'Erro ao registrar emoção.' });
+//     }
+// };
+
+
+
+
+
+
+
+
+async function obterEmocoes (request, response){
+    const params = Array(
+        request.params.data
+    )
+
+};
+
+
 // Função para obter emoções por data
 // exports.obterEmocoesPorData = async (req, res) => {
 //     const { data } = req.params;
@@ -44,6 +74,9 @@ async function registrarEmocao (request, response){
 //         res.status(500).json({ message: 'Erro ao obter emoções.' });
 //     }
 // };
+
+
+
 
 module.exports = {
     registrarEmocao

@@ -6,6 +6,7 @@ const { registrarEmocao } = require('../controller/calendarioController');
 router.post('/registrar-emocao', registrarEmocao);
 
 // Rota para obter emoções por data
+router.get('/obter-emocoes', obterEmocoes);
 //router.get('/obter-emocoes/:data', calendarioController.obterEmocoesPorData);
 
 module.exports = router;

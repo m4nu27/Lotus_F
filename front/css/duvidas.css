@@ -12,12 +12,27 @@ body {
     color: #555;
 }
 
-header {
-    background-color: #f2f2f8;
-    padding: 10px 15px;
-    border-bottom: 1px solid #ddd;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+main {
+    padding: 20px;
+    padding-bottom: 60px; /* Aumenta o padding inferior para evitar corte */
+    text-align: center;
+    margin-bottom: 60px; /* Espaço extra para o último item */
 }
+
+header {
+    width: 100%;
+    background-color: #f2f2f8;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 
 .top-bar {
     display: flex;
@@ -43,6 +58,7 @@ h1 {
 .logo {
     width: 50px;
     height: 40px;
+    margin-left: 55%;
 }
 
 main {
@@ -53,6 +69,7 @@ main {
 h2 {
     font-size: 24px;
     color: #000;
+    margin-top: 15%;
     margin-bottom: 20px;
 }
 
