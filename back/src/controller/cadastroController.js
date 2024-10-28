@@ -6,6 +6,8 @@ const dotenv = require('dotenv').config();
 
 // Função assíncrona para armazenar um novo usuário no banco de dados
 async function storeUser(request, response) {
+    console.log(request.body);
+    
     // Extrai os dados do corpo da requisição e os coloca em um array para serem utilizados na query SQL
     const params = Array(
         request.body.nome,             

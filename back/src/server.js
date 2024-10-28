@@ -5,9 +5,7 @@
 // const port = app.get('port');
 
 // Inicia o servidor Express e faz com que ele comece a escutar as requisições na porta especificada
-
-const express = require('express')
-const app = express()
+const app = require('./app')
 
 const port = process.env.PORT || 3020
 const cors = require('cors')
@@ -31,6 +29,4 @@ const swaggerOptions = {
 // const taskRouter = require('./routes/tasksRouter');
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
-app.use(express.json())
-app.use(cors())
 app.listen(port, () => console.log(`Rodando na porta ${port}!`))

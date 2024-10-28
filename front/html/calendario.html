@@ -7,49 +7,49 @@
     <link rel="stylesheet" href="/front/css/calendario.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
 </head>
-  <body>
+<body>
 
     <button id="back-button">X</button>
     
     <div class="wrapper">
-      <header>
-        <p class="current-date"></p>
-        <div class="icons">
-          <span id="prev" class="material-symbols-rounded">←</span>
-          <span id="next" class="material-symbols-rounded">→</span>
+        <header>
+            <p class="current-date"></p>
+            <div class="icons">
+                <span id="prev" class="material-symbols-rounded">←</span>
+                <span id="next" class="material-symbols-rounded">→</span>
+            </div>
+        </header>
+        <div class="calendar">
+            <ul class="weeks">
+                <li>Dom</li>
+                <li>Seg</li>
+                <li>Ter</li>
+                <li>Qua</li>
+                <li>Qui</li>
+                <li>Sex</li>
+                <li>Sáb</li>
+            </ul>
+            <ul class="days"></ul>
         </div>
-      </header>
-      <div class="calendar">
-        <ul class="weeks">
-          <li>Dom</li>
-          <li>Seg</li>
-          <li>Ter</li>
-          <li>Qua</li>
-          <li>Qui</li>
-          <li>Sex</li>
-          <li>Sáb</li>
-        </ul>
-        <ul class="days"></ul>
-      </div>
     </div>
 
     <div class="registroEmoji" style="display: none;">
-      <h1>Como você está se sentindo hoje?</h1>
-      <p id="dia"></p>
+        <h1>Como você está se sentindo hoje?</h1>
+        <p id="dia"></p>
         <div class="emoji-container">
             <div class="emoji" data-emotion="Feliz">😊</div>
             <div class="emoji" data-emotion="Triste">😢</div>
-            <div class="emoji" data-emotion="Bravo">😡</div>
-            <div class="emoji" data-emotion="Ansioso">😰</div>
-            <div class="emoji" data-emotion="Surpreso">😲</div>
+            <div class="emoji" data-emotion="Brava">😡</div>
+            <div class="emoji" data-emotion="Ansiosa">😰</div>
+            <div class="emoji" data-emotion="Surpresa">😲</div>
         </div>
         <h2 id="selected-emotion"></h2>
-      <textarea id="observations" placeholder="Faça suas observações aqui..."></textarea>
-      <button id="submit">Registrar Emoção</button>
+        <textarea id="observations" placeholder="Faça suas observações aqui..."></textarea>
+        <button id="submit">Registrar Emoção</button>
     </div>
 
-    <div class="fundo"></div>
-  </body>
+    <div class="fundo" style="display: none;"></div>
 
-<script src="/front/javascript/calendario.js"></script>
+    <script src="/front/javascript/calendario.js"></script>
+</body>
 </html>

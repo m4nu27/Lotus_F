@@ -56,32 +56,59 @@ h2 {
     margin-bottom: 20px;
 }
 
-.faq {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+
+details {
+    display: block; 
+    width: auto;
+    margin: 16px 0;
+}
+  
+#descrição { 
+    margin-top: 4%;
+    margin-left: 4%;
+    margin-right: 4%;
+    color: #8D50C7;
+    font-weight: 500;
+    border: 2px solid #8D50C7;
+    background-color: #F9F1FF;
+    border-radius: 20px;
+    padding: 10px;
 }
 
-.faq-item {
-    background-color: #F9F1FF;
+summary {
+    display: flex; 
+    background: #F9F1FF;
+    color: #8D50C7;
     border: 2px solid #8D50C7;
     border-radius: 20px;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 10px;
     cursor: pointer;
+    font-weight: 700;
+    justify-content: flex-start;
+    align-items: center;
+}
+  
+summary::-webkit-details-marker {
+     display: none;
+}
+  
+summary:before {
+    content: "+";
+     font-size: 20px;
+     font-weight: bold;
+     margin: 0 5px;
+     padding: 0;
+     width: 20px;
+     text-align: center;
+}
+  
+details[open] summary:before {
+    content: "-";
 }
 
-.faq-item p {
-    font-size: 16px;
-    color: #8D50C7;
-}
 
-.arrow-icon {
-    width: 20px;
-    height: 20px;
-}
+
+
 
 .bottom-nav {
     background-color: #f2f2f8;
@@ -100,12 +127,12 @@ h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Centralizar o conteúdo verticalmente */
+    justify-content: center;
     text-align: center;
     font-size: 12px;
     color: #999999;
     text-decoration: none;
-    width: 100%; /* Garante que o item ocupe toda a largura disponível */
+    width: 100%;
 }
 
 .nav-item img {

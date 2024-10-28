@@ -6,7 +6,7 @@ async function fetchNews() {
     console.log("Tentando buscar notícias...");
     try {
         // Adiciona um timestamp à URL para evitar cache
-        const url = `https://newsapi.org/v2/everything?q="depressão-pós-parto" OR "depressão materna" OR "depressão pós-natal"&language=pt&apiKey=${apiKey}&_=${new Date().getTime()}`;
+        const url = `https://newsapi.org/v2/everything?q="depressão-pós-parto" &language=pt&apiKey=${apiKey}&_=${new Date().getTime()}`;
         const response = await fetch(url);
         if (!response.ok) {
             throw new Error(`Erro: ${response.statusText}`);
