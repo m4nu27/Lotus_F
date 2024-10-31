@@ -1,4 +1,3 @@
-// JavaScript atualizado
 const daysTag = document.querySelector(".days"),
       currentDate = document.querySelector(".current-date"),
       prevNextIcon = document.querySelectorAll(".icons span"),
@@ -59,10 +58,30 @@ prevNextIcon.forEach(icon => {
     });
 });
 
-function abrirDia(dia, mes, ano) {
+async function abrirDia(dia, mes, ano) {
+    const dataSelecionada = `${ano}-${mes.toString().padStart(2, '0')}-${dia.toString().padStart(2, '0')}`;
     registroEmoji.style.display = 'block';
     fundo.style.display = 'block';
     document.getElementById("dia").innerHTML = `Dia: ${dia}/${mes}/${ano}`;
+
+    try {
+        const response = await fetch(`http://127.0.0.1:3020/api/obter-emocoes/${dataSelecionada}`);
+        if (response.ok) {
+            const emocoes = await response.json();
+            if (emocoes.length > 0) {
+                // Exibe as emoções e observações do dia
+                selectedEmotion.textContent = `Você registrou: ${emocoes[0].emocao}`;
+                observations.value = emocoes[0].observacao;
+            } else {
+                // Se não houver registro, limpa as informações
+                selectedEmotion.textContent = '';
+                observations.value = '';
+            }
+        }
+    } catch (error) {
+        console.error('Erro ao obter emoções:', error);
+    }
+
     fundo.onclick = fecharRegistro;
 }
 
@@ -102,7 +121,7 @@ submitButton.addEventListener('click', async function() {
         };
 
         try {
-            const response = await fetch('http://localhost:3020/api/registrar-emocao', {
+            const response = await fetch('http://127.0.0.1:3020/api/registrar-emocao', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -126,4 +145,5 @@ submitButton.addEventListener('click', async function() {
         alert('Por favor, selecione uma emoção e faça suas observações.');
     }
 });
+
 
