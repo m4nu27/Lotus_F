@@ -213,3 +213,9 @@ button:hover {
   justify-content: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+.has-emotion {
+  background-color: #8944ab;
+  border-radius: 50%;
+  color: #fff;
+}

@@ -16,6 +16,31 @@ let date = new Date(),
 const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho",
                 "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
 
+// const renderCalendar = () => {
+//     let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(),
+//         lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(),
+//         lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(),
+//         lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate();
+//     let liTag = "";
+
+//     for (let i = firstDayofMonth; i > 0; i--) {
+//         liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
+//     }
+
+//     for (let i = 1; i <= lastDateofMonth; i++) {
+//         let isToday = i === date.getDate() && currMonth === new Date().getMonth()
+//                      && currYear === new Date().getFullYear() ? "active" : "";
+//         liTag += `<li class="${isToday}" onclick="abrirDia(${i}, ${currMonth + 1}, ${currYear})">${i}</li>`;
+//     }
+
+//     for (let i = lastDayofMonth; i < 6; i++) { 
+//         liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`;
+//     }
+
+//     currentDate.innerText = `${months[currMonth]} ${currYear}`;
+//     daysTag.innerHTML = liTag;
+// };
+
 const renderCalendar = () => {
     let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(),
         lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(),
@@ -23,16 +48,19 @@ const renderCalendar = () => {
         lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate();
     let liTag = "";
 
+    // Dias do mês anterior
     for (let i = firstDayofMonth; i > 0; i--) {
         liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
     }
 
+    // Dias do mês atual
     for (let i = 1; i <= lastDateofMonth; i++) {
         let isToday = i === date.getDate() && currMonth === new Date().getMonth()
                      && currYear === new Date().getFullYear() ? "active" : "";
-        liTag += `<li class="${isToday}" onclick="abrirDia(${i}, ${currMonth + 1}, ${currYear})">${i}</li>`;
+        liTag += `<li class="${isToday}" onclick="abrirDia(${i}, ${currMonth + 1}, ${currYear})" data-dia="${i}">${i}</li>`;
     }
 
+    // Dias do próximo mês
     for (let i = lastDayofMonth; i < 6; i++) { 
         liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`;
     }
@@ -66,17 +94,15 @@ async function abrirDia(dia, mes, ano) {
 
     try {
         const response = await fetch(`http://127.0.0.1:3020/api/obter-emocoes/${dataSelecionada}`);
-        if (response.ok) {
-            const emocoes = await response.json();
-            if (emocoes.length > 0) {
-                // Exibe as emoções e observações do dia
-                selectedEmotion.textContent = `Você registrou: ${emocoes[0].emocao}`;
-                observations.value = emocoes[0].observacao;
-            } else {
-                // Se não houver registro, limpa as informações
-                selectedEmotion.textContent = '';
-                observations.value = '';
-            }
+        const emocoes = await response.json();
+
+        if (emocoes.data.length > 0) {
+            alert(`Registro encontrado: Emoção - ${emocoes.data[0].emocao}, Observação - ${emocoes.data[0].observacao}`);
+            selectedEmotion.textContent = `Você registrou: ${emocoes.data[0].emocao}`;
+            observations.value = emocoes.data[0].observacao;
+        } else {
+            selectedEmotion.textContent = '';
+            observations.value = '';
         }
     } catch (error) {
         console.error('Erro ao obter emoções:', error);
@@ -84,6 +110,7 @@ async function abrirDia(dia, mes, ano) {
 
     fundo.onclick = fecharRegistro;
 }
+
 
 function fecharRegistro() {
     registroEmoji.style.display = 'none';
