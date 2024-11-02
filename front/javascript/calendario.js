@@ -16,30 +16,6 @@ let date = new Date(),
 const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho",
                 "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
 
-// const renderCalendar = () => {
-//     let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(),
-//         lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(),
-//         lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(),
-//         lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate();
-//     let liTag = "";
-
-//     for (let i = firstDayofMonth; i > 0; i--) {
-//         liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
-//     }
-
-//     for (let i = 1; i <= lastDateofMonth; i++) {
-//         let isToday = i === date.getDate() && currMonth === new Date().getMonth()
-//                      && currYear === new Date().getFullYear() ? "active" : "";
-//         liTag += `<li class="${isToday}" onclick="abrirDia(${i}, ${currMonth + 1}, ${currYear})">${i}</li>`;
-//     }
-
-//     for (let i = lastDayofMonth; i < 6; i++) { 
-//         liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`;
-//     }
-
-//     currentDate.innerText = `${months[currMonth]} ${currYear}`;
-//     daysTag.innerHTML = liTag;
-// };
 
 const renderCalendar = () => {
     let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(),
@@ -86,6 +62,31 @@ prevNextIcon.forEach(icon => {
     });
 });
 
+// async function abrirDia(dia, mes, ano) {
+//     const dataSelecionada = `${ano}-${mes.toString().padStart(2, '0')}-${dia.toString().padStart(2, '0')}`;
+//     registroEmoji.style.display = 'block';
+//     fundo.style.display = 'block';
+//     document.getElementById("dia").innerHTML = `Dia: ${dia}/${mes}/${ano}`;
+
+//     try {
+//         const response = await fetch(`http://127.0.0.1:3020/api/obter-emocoes/${dataSelecionada}`);
+//         const emocoes = await response.json();
+
+//         if (emocoes.data.length > 0) {
+//             alert(`Registro encontrado: Emoção - ${emocoes.data[0].emocao}, Observação - ${emocoes.data[0].observacao}`);
+//             selectedEmotion.textContent = `Você registrou: ${emocoes.data[0].emocao}`;
+//             observations.value = emocoes.data[0].observacao;
+//         } else {
+//             selectedEmotion.textContent = '';
+//             observations.value = '';
+//         }
+//     } catch (error) {
+//         console.error('Erro ao obter emoções:', error);
+//     }
+
+//     fundo.onclick = fecharRegistro;
+// }
+
 async function abrirDia(dia, mes, ano) {
     const dataSelecionada = `${ano}-${mes.toString().padStart(2, '0')}-${dia.toString().padStart(2, '0')}`;
     registroEmoji.style.display = 'block';
@@ -96,10 +97,11 @@ async function abrirDia(dia, mes, ano) {
         const response = await fetch(`http://127.0.0.1:3020/api/obter-emocoes/${dataSelecionada}`);
         const emocoes = await response.json();
 
-        if (emocoes.data.length > 0) {
-            alert(`Registro encontrado: Emoção - ${emocoes.data[0].emocao}, Observação - ${emocoes.data[0].observacao}`);
-            selectedEmotion.textContent = `Você registrou: ${emocoes.data[0].emocao}`;
-            observations.value = emocoes.data[0].observacao;
+        if (emocoes.data && emocoes.data.length > 0) {
+            const emocao = emocoes.data[0].emocao;
+            const observacao = emocoes.data[0].observacao;
+            selectedEmotion.textContent = `Você registrou: ${emocao}`;
+            observations.value = observacao;
         } else {
             selectedEmotion.textContent = '';
             observations.value = '';
@@ -110,6 +112,7 @@ async function abrirDia(dia, mes, ano) {
 
     fundo.onclick = fecharRegistro;
 }
+
 
 
 function fecharRegistro() {
