@@ -30,30 +30,41 @@ async function registrarEmocao (request, response){
     })
 };
 
-
-// Função para obter emoções registradas em uma data específica
+// Função para obter emoções de uma data específica
 async function obterEmocoes(request, response) {
-    const data = request.params.data; // Obtém a data a partir dos parâmetros da rota
+    const { data } = request.query; // Extrai a data dos parâmetros da requisição
 
-    const query = `SELECT * FROM emocoes WHERE data = ?`;
+    const query = `SELECT emocao, observacao FROM emocoes WHERE data = ?`;
+
     connection.query(query, [data], (err, results) => {
         if (results && results.length > 0) {
             response
                 .status(200)
                 .json({
                     success: true,
+                    message: "Emoções obtidas com sucesso!",
                     data: results
+                });
+        } else if (results && results.length === 0) {
+            response
+                .status(200)
+                .json({
+                    success: true,
+                    message: "Nenhuma emoção registrada para esta data.",
+                    data: []
                 });
         } else {
             response
-                .status(404)
+                .status(400)
                 .json({
                     success: false,
-                    message: "Nenhum registro encontrado para esta data."
+                    message: "Erro ao obter emoções.",
+                    data: err
                 });
         }
     });
-}
+};
+
 
 module.exports = {
     registrarEmocao,

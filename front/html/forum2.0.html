@@ -1,42 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fórum</title>
-    <link rel="stylesheet" href="/front/css/forum2.0.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/front/css/forum2.0.css">
+  <title>Fórum</title>
 </head>
 <body>
-    <header>
-        <h1>Fórum de Discussão</h1>
-    </header>
-
-    <main>
-        <section class="new-topic">
-            <h2>Criar novo tópico</h2>
-            <input type="text" id="new-topic-title" placeholder="Título do Tópico">
-            <textarea id="new-topic-content" placeholder="Conteúdo do Tópico"></textarea>
-            <button id="add-topic-btn">Adicionar Tópico</button>
-        </section>
-
-        <section class="topics-list">
-            <h2>Tópicos Recentes</h2>
-            <ul id="topics">
-                <!-- Tópicos serão inseridos aqui -->
-            </ul>
-        </section>
-
-        <section class="discussion" style="display:none;">
-            <h2 id="discussion-title"></h2>
-            <ul id="discussion-messages">
-                <!-- Mensagens da discussão serão inseridas aqui -->
-            </ul>
-            <textarea id="new-message" placeholder="Escreva uma resposta"></textarea>
-            <button id="send-message-btn">Enviar Resposta</button>
-            <button id="back-to-topics-btn">Voltar para os Tópicos</button>
-        </section>
-    </main>
-
-    <script src="/front/javascript/forum2.0.js"></script>
+  <div class="forum-container">
+    <h1>Fórum</h1>
+    <form id="messageForm">
+      <input type="text" name="username" placeholder="Seu nome" required />
+      <textarea name="content" placeholder="Escreva sua mensagem..." required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+    <div id="messagesContainer"></div>
+  </div>
+  <script src="/front/javascript/forum.js"></script>
 </body>
 </html>
