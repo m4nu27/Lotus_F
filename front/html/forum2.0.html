@@ -7,15 +7,14 @@
   <title>Fórum</title>
 </head>
 <body>
-  <div class="forum-container">
-    <h1>Fórum</h1>
-    <form id="messageForm">
-      <input type="text" name="username" placeholder="Seu nome" required />
-      <textarea name="content" placeholder="Escreva sua mensagem..." required></textarea>
-      <button type="submit">Enviar</button>
-    </form>
-    <div id="messagesContainer"></div>
-  </div>
+  <div id="forum">
+    <div id="postContainer"></div>
+    <div id="newPost">
+        <textarea id="postContent" placeholder="Escreva uma nova postagem..."></textarea>
+        <button onclick="addPost()">Postar</button>
+    </div>
+</div>
+
   <script src="/front/javascript/forum.js"></script>
 </body>
 </html>

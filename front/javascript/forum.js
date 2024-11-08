@@ -1,61 +1,51 @@
-// forum.js
-document.addEventListener("DOMContentLoaded", () => {
-  const messageForm = document.getElementById("messageForm");
-  const messagesContainer = document.getElementById("messagesContainer");
+async function fetchPosts() {
+  const response = await fetch('/api/posts');
+  const data = await response.json();
+  displayPosts(data.posts, data.comments);
+}
 
-  // Carrega todas as mensagens
-  async function loadMessages() {
-    const response = await fetch('/api/messages');
-    const messages = await response.json();
-    messagesContainer.innerHTML = ''; // Limpa antes de renderizar
-    messages.forEach(renderMessage);
-  }
+function displayPosts(posts, comments) {
+  const postContainer = document.getElementById('postContainer');
+  postContainer.innerHTML = '';
+  
+  posts.forEach(post => {
+      const postDiv = document.createElement('div');
+      postDiv.classList.add('post');
+      postDiv.innerHTML = `
+          <p><strong>${post.username}:</strong> ${post.content}</p>
+          <div class="comments">
+              ${comments.filter(c => c.post_id === post.id).map(comment => `
+                  <p><strong>${comment.username}:</strong> ${comment.content}</p>
+              `).join('')}
+              <textarea placeholder="Escreva um comentário..."></textarea>
+              <button onclick="addComment(${post.id})">Comentar</button>
+          </div>
+      `;
+      postContainer.appendChild(postDiv);
+  });
+}
 
-  // Função para renderizar uma mensagem e seus comentários
-  function renderMessage(message) {
-    const messageDiv = document.createElement("div");
-    messageDiv.className = "message";
-    messageDiv.innerHTML = `
-      <h4>${message.username}</h4>
-      <p>${message.content}</p>
-      <div class="comments"></div>
-      <form class="commentForm" data-id="${message.id}">
-        <input type="text" placeholder="Escreva um comentário..." required />
-        <button type="submit">Comentar</button>
-      </form>
-    `;
-    messagesContainer.appendChild(messageDiv);
-  }
-
-  // Envia nova mensagem
-  messageForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const username = e.target.username.value;
-    const content = e.target.content.value;
-    await fetch('/api/messages', {
+async function addPost() {
+  const content = document.getElementById('postContent').value;
+  const userId = 1; // Supondo que o ID do usuário esteja disponível aqui
+  await fetch('/api/posts', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, content })
-    });
-    loadMessages();
-    messageForm.reset();
+      body: JSON.stringify({ userId, content })
   });
+  document.getElementById('postContent').value = '';
+  fetchPosts(); // Atualizar posts
+}
 
-  // Envia novo comentário
-  messagesContainer.addEventListener("submit", async (e) => {
-    if (e.target.classList.contains("commentForm")) {
-      e.preventDefault();
-      const commentForm = e.target;
-      const messageId = commentForm.getAttribute("data-id");
-      const comment = commentForm.querySelector("input").value;
-      await fetch('/api/comments', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messageId, username: "User", comment })
-      });
-      loadMessages();
-    }
+async function addComment(postId) {
+  const content = event.target.previousElementSibling.value;
+  const userId = 1; // Supondo que o ID do usuário esteja disponível aqui
+  await fetch('/api/comments', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userId, postId, content })
   });
+  fetchPosts(); // Atualizar posts e comentários
+}
 
-  loadMessages(); // Carrega as mensagens ao iniciar
-});
+fetchPosts(); // Chama ao carregar a página

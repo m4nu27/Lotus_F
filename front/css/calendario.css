@@ -214,17 +214,41 @@ button:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.has-emotion {
-  background-color: #8944ab;
-  border-radius: 50%;
-  color: #fff;
+.registro-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #fff;
+  margin-top: 20px;
+  display: none; /* Oculto por padrão */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: fixed;
+  margin-top: 600px;
+/* 
+
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001; */
 }
 
-.registro-ponto {
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  background-color: #8944ab;
-  border-radius: 50%;
-  margin-top: 2px;
+.registro-card h2 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+#lista-registros {
+  list-style-type: none;
+  padding: 0;
+}
+
+#lista-registros li {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
 }

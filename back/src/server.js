@@ -8,7 +8,6 @@
 const app = require('./app')
 
 const port = process.env.PORT || 3020
-const cors = require('cors')
 require('dotenv').config()
 const swaggerUi = require("swagger-ui-express")
 const swaggerJsDoc = require("swagger-jsdoc")
