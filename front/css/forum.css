@@ -60,6 +60,17 @@ main{
 
 #forum{
     margin-top: 15px;
+    position: fixed;
+    bottom: 60px;
+    left: 0;
+    width: 100%;
+    background-color: rgba(242, 242, 248, 0.9);
+    padding: 10px;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center; /* Alinha o botão e o textarea verticalmente ao centro */
+    justify-content: center; /* Centraliza os elementos horizontalmente */
+    gap: 10px; /* Espaçamento entre o textarea e o botão */
 }
 
 ::placeholder{
@@ -81,8 +92,24 @@ textarea{
     border-color: #8D50C7;
     border-radius: 10px;
     border-width: 4px;
-    width: 50%;
+    width: 60%;
     height: 80%;
+}
+
+.conversa{
+    display: flex;
+    flex-direction: column;
+    background-color: #ba68c8;
+    padding: 15px;
+    border-radius: 20px;
+    margin-top: 10%;
+    margin-left: 15%;
+    margin-bottom: 5%px;
+    margin-right: 5%;
+}
+
+p{
+    color: #f2f2f8;
 }
 
 .bottom-nav {
