@@ -1,16 +1,35 @@
 // Função para enviar uma nova postagem
+// async function sendPost() {
+//   const message = document.getElementById("postMessage").value;
+//   if (message) {
+//       await fetch('/posts', {
+//           method: 'POST',
+//           headers: { 'Content-Type': 'application/json' },
+//           body: JSON.stringify({ message })
+//       });
+//       document.getElementById("postMessage").value = '';
+//       loadPosts();
+//   }
+// }
+
 async function sendPost() {
   const message = document.getElementById("postMessage").value;
   if (message) {
-      await fetch('/posts', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ message })
-      });
-      document.getElementById("postMessage").value = '';
-      loadPosts();
+      try {
+          const response = await fetch('http://localhost:3020/posts', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ message })
+          });
+          if (!response.ok) throw new Error('Erro ao enviar post');
+          document.getElementById("postMessage").value = '';
+          loadPosts();
+      } catch (error) {
+          console.error('Erro:', error);
+      }
   }
 }
+
 
 // Carregar as postagens e comentários
 async function loadPosts() {

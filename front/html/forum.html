@@ -15,41 +15,13 @@
     </header>
 
     <main>
-        <div class="search-bar">
-            <input type="text" placeholder="Pesquise por tema de conversa">
-            <img src="/img/lupa.png" alt="Ícone de microfone" class="mic-icon">
+        <h1 class="conviteEnvio">Envie aqui sua mensagem!</h1>
+        <div id="forum">
+            <textarea id="postMessage" placeholder="Escreva uma mensagem..."></textarea>
+            <button onclick="sendPost()">Enviar</button>
+            
+            <div id="postsContainer"></div>
         </div>
-
-        <section class="conversas">
-            <div class="conversa-item">
-                <p>Será que o que eu estou sentindo é depressão pós parto?</p>
-                <div class="conversa-footer">
-                    <img src="/img/heart.png" alt="Ícone de coração" class="heart-icon">
-                    <button>Entrar na conversa</button>
-                </div>
-            </div>
-
-            <div class="conversa-item">
-                <p>E se eu não conseguir buscar terapia?</p>
-                <div class="conversa-footer">
-                    <img src="/img/heart.png" alt="Ícone de coração" class="heart-icon">
-                    <button>Entrar na conversa</button>
-                </div>
-            </div>
-
-            <div class="conversa-item">
-                <p>Onde encontrar terapia por um valor menor?</p>
-                <div class="conversa-footer">
-                    <img src="/img/heart.png" alt="Ícone de coração" class="heart-icon">
-                    <a href="/front/html/conversa.html">
-                    <button>Entrar na conversa</button>
-                    </a>
-                </div>
-            </div>
-        </section>
-        <!-- <a href="/front/html/conversa.html">
-            <button class="novaConversa">Iniciar uma nova conversa</button>
-        </a> -->
     </main>
 
     <nav class="bottom-nav">
@@ -74,5 +46,6 @@
             <span>Perfil</span>
         </a>
     </nav>
+    <script src="/front/javascript/forum.js"></script>
 </body>
 </html>

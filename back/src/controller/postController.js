@@ -1,9 +1,16 @@
 const db = require('../config/db.js');
 
+// exports.createPost = async (req, res) => {
+//     const { message } = req.body;
+//     const result = await db.query('INSERT INTO posts (message) VALUES (?)', [message]);
+//     res.json({ id: result.insertId });
+// };
+
 exports.createPost = async (req, res) => {
+    console.log('Requisição recebida para criar post:', req.body);
     const { message } = req.body;
     const result = await db.query('INSERT INTO posts (message) VALUES (?)', [message]);
-    res.send({ id: result.insertId });
+    res.json({ id: result.insertId });
 };
 
 exports.getPosts = async (req, res) => {
@@ -19,5 +26,5 @@ exports.deletePost = async (req, res) => {
     const { id } = req.params;
     await db.query('DELETE FROM posts WHERE id = ?', [id]);
     await db.query('DELETE FROM comments WHERE postId = ?', [id]);
-    res.sendStatus(204);
+    res.jsonStatus(204);
 };
