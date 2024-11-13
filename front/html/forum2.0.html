@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/front/css/forum2.0.css">
-  <title>Fórum</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fórum</title>
+    <link rel="stylesheet" href="/front/css/forum2.0.css">
 </head>
 <body>
-  <div id="forum">
-    <div id="postContainer"></div>
-    <div id="newPost">
-        <textarea id="postContent" placeholder="Escreva uma nova postagem..."></textarea>
-        <button onclick="addPost()">Postar</button>
+    <div id="forum">
+        <h1>Fórum</h1>
+        <textarea id="postMessage" placeholder="Escreva uma mensagem..."></textarea>
+        <button onclick="sendPost()">Enviar</button>
+        
+        <div id="postsContainer"></div>
     </div>
-</div>
-
-  <script src="/front/javascript/forum.js"></script>
+    <script src="/front/javascript/forum.js"></script>
 </body>
 </html>

@@ -1,51 +1,68 @@
-async function fetchPosts() {
-  const response = await fetch('/api/posts');
-  const data = await response.json();
-  displayPosts(data.posts, data.comments);
+// Função para enviar uma nova postagem
+async function sendPost() {
+  const message = document.getElementById("postMessage").value;
+  if (message) {
+      await fetch('/posts', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message })
+      });
+      document.getElementById("postMessage").value = '';
+      loadPosts();
+  }
 }
 
-function displayPosts(posts, comments) {
-  const postContainer = document.getElementById('postContainer');
-  postContainer.innerHTML = '';
-  
+// Carregar as postagens e comentários
+async function loadPosts() {
+  const res = await fetch('/posts');
+  const posts = await res.json();
+  const container = document.getElementById("postsContainer");
+  container.innerHTML = '';
+
   posts.forEach(post => {
       const postDiv = document.createElement('div');
       postDiv.classList.add('post');
       postDiv.innerHTML = `
-          <p><strong>${post.username}:</strong> ${post.content}</p>
-          <div class="comments">
-              ${comments.filter(c => c.post_id === post.id).map(comment => `
-                  <p><strong>${comment.username}:</strong> ${comment.content}</p>
-              `).join('')}
-              <textarea placeholder="Escreva um comentário..."></textarea>
-              <button onclick="addComment(${post.id})">Comentar</button>
-          </div>
+          <p>${post.message}</p>
+          <button onclick="deletePost(${post.id})">Excluir</button>
+          <textarea placeholder="Comente aqui..."></textarea>
+          <button onclick="sendComment(${post.id}, this.previousElementSibling.value)">Enviar</button>
+          <div class="comments"></div>
       `;
-      postContainer.appendChild(postDiv);
+      post.comments.forEach(comment => {
+          const commentDiv = document.createElement('div');
+          commentDiv.classList.add('comment');
+          commentDiv.innerHTML = `
+              <p>${comment.text}</p>
+              <button onclick="deleteComment(${comment.id})">Excluir</button>
+          `;
+          postDiv.querySelector('.comments').appendChild(commentDiv);
+      });
+      container.appendChild(postDiv);
   });
 }
 
-async function addPost() {
-  const content = document.getElementById('postContent').value;
-  const userId = 1; // Supondo que o ID do usuário esteja disponível aqui
-  await fetch('/api/posts', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ userId, content })
-  });
-  document.getElementById('postContent').value = '';
-  fetchPosts(); // Atualizar posts
+// Funções para excluir postagens e comentários
+async function deletePost(id) {
+  await fetch(`/posts/${id}`, { method: 'DELETE' });
+  loadPosts();
 }
 
-async function addComment(postId) {
-  const content = event.target.previousElementSibling.value;
-  const userId = 1; // Supondo que o ID do usuário esteja disponível aqui
-  await fetch('/api/comments', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ userId, postId, content })
-  });
-  fetchPosts(); // Atualizar posts e comentários
+async function sendComment(postId, text) {
+  if (text) {
+      await fetch(`/comments`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ postId, text })
+      });
+      loadPosts();
+  }
 }
 
-fetchPosts(); // Chama ao carregar a página
+async function deleteComment(id) {
+  await fetch(`/comments/${id}`, { method: 'DELETE' });
+  loadPosts();
+}
+
+// Carregar postagens ao iniciar
+window.onload = loadPosts;
