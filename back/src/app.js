@@ -20,7 +20,7 @@ app.use(express.json());
 app.use('/api', calendarioRouter);
 app.use('/api', userRouter);
 app.use('/api', loginRouter);
-app.use('/posts', postRoutes);
-app.use('/comments', commentRoutes);
+app.use('/api/post', postRoutes);
+app.use('/api', commentRoutes);
 
 module.exports = app;
