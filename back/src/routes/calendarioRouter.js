@@ -1,11 +1,8 @@
-const { Router } = require('express');
-const router = Router();
-const { registrarEmocao, obterEmocoes } = require('../controller/calendarioController');
+const express = require('express');
+const router = express.Router();
+const calendarioController = require('../controller/calendarioController.js');
 
-// Rota para registrar emoção
-router.post('/registrar-emocao', registrarEmocao);
-
-// Rota para obter emoções de uma data específica
-router.get('/obter-emocoes', obterEmocoes);
+router.post('/registrar-emocao', calendarioController.registrarEmocao);
+router.get('/obter-emocoes/:data', calendarioController.obterEmocoes);
 
 module.exports = router;

@@ -31,4 +31,3 @@ connection.connect((err) => {
 
 // Exporta a conexão para que ela possa ser utilizada em outros módulos do projeto
 module.exports = connection;
-

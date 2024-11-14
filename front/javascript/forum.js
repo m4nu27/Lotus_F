@@ -16,7 +16,7 @@ async function sendPost() {
   const message = document.getElementById("postMessage").value;
   if (message) {
       try {
-          const response = await fetch('http://localhost:3020/posts', {
+          const response = await fetch('http://localhost:3020/api/posts', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({ message })
@@ -33,7 +33,7 @@ async function sendPost() {
 
 // Carregar as postagens e comentários
 async function loadPosts() {
-  const res = await fetch('/posts');
+  const res = await fetch('http://localhost:3020/api/posts');
   const posts = await res.json();
   const container = document.getElementById("postsContainer");
   container.innerHTML = '';

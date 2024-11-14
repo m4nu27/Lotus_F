@@ -1,4 +1,4 @@
-const db = require('../config/db.js');
+const db = require('../db');
 
 exports.createComment = async (req, res) => {
     const { postId, text } = req.body;

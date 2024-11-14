@@ -23,5 +23,4 @@ app.use('/api', loginRouter);
 app.use('/posts', postRoutes);
 app.use('/comments', commentRoutes);
 
-
 module.exports = app;
