@@ -41,75 +41,17 @@ h1 {
     color: #333;
 }
 
-.conviteEnvio {
-    font-size: 24px;
-    margin-top: 20%;
-    margin-right: 10%;
-    color: #333;
-}
-
 .logo {
     width: 50px;
     height: 40px;
     margin-left: 55%;
 }
 
-main{
-    text-align: center;
-}
-
-#forum{
-    margin-top: 15px;
-    position: fixed;
-    bottom: 60px;
-    left: 0;
-    width: 100%;
-    background-color: rgba(242, 242, 248, 0.9);
-    padding: 10px;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center; /* Alinha o botão e o textarea verticalmente ao centro */
-    justify-content: center; /* Centraliza os elementos horizontalmente */
-    gap: 10px; /* Espaçamento entre o textarea e o botão */
-}
-
-::placeholder{
-    font-size: 16px;
-    
-}
-
-button {
-    background-color: #8D50C7;
-    color: #f2f2f8;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-size: 14px;
-    cursor: pointer;
-}
-
-textarea{
-    border-color: #8D50C7;
-    border-radius: 10px;
-    border-width: 4px;
-    width: 60%;
-    height: 80%;
-}
-
-.conversa{
-    display: flex;
-    flex-direction: column;
-    background-color: #ba68c8;
-    padding: 15px;
-    border-radius: 20px;
-    margin-top: 10%;
-    margin-left: 15%;
-    margin-bottom: 5%px;
-    margin-right: 5%;
-}
-
-p{
-    color: #f2f2f8;
+.conviteEnvio {
+    font-size: 24px;
+    margin-top: 20%;
+    margin-right: 10%;
+    color: #333;
 }
 
 .bottom-nav {
@@ -145,4 +87,254 @@ p{
 
 .nav-item.active {
     color: #8D50C7;
+}
+
+/* já alterei daqui para cima */
+
+
+
+
+.link_pagina_nova {
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: #CCD5AE;
+    color: #597F34;
+    font-size: 12px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.icone {
+    margin-right: 10%;
+    width: 80%;
+    height: 80%;
+}
+
+.texto_icone_atual {
+    font-weight: bold;
+    text-decoration:underline;
+}
+
+
+.pagina {
+    padding-top: 2%;
+    padding-left: 9%;
+    font-size: 150%;
+    color: #7381d4;
+    font-weight: bold;
+    text-decoration:underline;
+}
+
+.post {
+    display: flex;
+    flex-direction: column;
+    background-color: #CCD5AE;
+    width: 70vw;
+    margin-left: 2%;
+    margin-top: 2%;
+    margin-bottom: 10vh;
+    border-radius: 2vw;
+    padding: 2%;
+    align-items: center;   
+}
+
+#imagem_bloco {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5vh;
+    padding: 2%;
+}
+
+.textos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5vh;
+}
+
+.titulo {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 2%;
+    text-align: justify;
+    letter-spacing: -1px;
+    
+}
+
+.legenda {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 2%;
+    text-align: justify;
+}
+
+.perfil {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 2%;
+    text-align: justify;
+    color: #CCD5AE;
+    font-size: small;
+}
+
+#usuario {
+    display: flex;
+    align-items: center;
+    gap: 0.5%;
+}
+
+.icone_usuario {
+    display: inline-block;
+    vertical-align: top;
+    width: 2%;
+    height: 2%;
+    margin-top: 2%;
+    margin-left: 1%;
+    text-align: justify;
+}
+
+.botao{
+    background-color: #8D50C7;
+    border-radius: 20px;
+    font-size: medium;
+    color: #fff;
+    padding-right: 2%;
+    width: 50%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+
+}
+
+.img_botao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3vw;
+    color: #597F34;
+}
+
+
+#quadro_postando {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 47%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    gap: 10px;
+    background-color: #BA68C8;
+    font-size: 2.5vh;
+    font-weight: bold;
+    width: 50vw;
+    height: 50vh;
+    margin-left: 2%;
+    margin-top: 2%;
+    border-radius: 2vw;
+    padding: 2%;
+    z-index: 2000;
+    border: none;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.bloco_profissional {
+    display: flex;
+    gap: 1vw;
+    width: 50vw;
+    justify-content: space-between;
+}
+
+.profissional_post {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+}
+
+#sair {
+    width: 2vw;
+}
+
+.sair {
+    width: 2.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 46%;
+}
+
+#quadro_formulario {
+    background-color: #8D50C7;
+    font-size: medium;
+    border-radius: 18px;
+    color: #FFFFFF;
+    width: 300%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    position: absolute;
+    transform: translate(-76%, -50%); /* Centraliza completamente */
+    text-decoration: none;
+}
+
+#post-container{
+    color: #597F34;
+}
+
+#novo_post{
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+.inputs_novo_post {
+    background: transparent;
+    border: none;
+    border-bottom: 1.5px solid #8D50C7;
+    color: #FFFFFF;
+    padding: 0.6em 0.3em;
+    font-size: 100%;
+}
+
+.inputs_novo_post::placeholder {
+    color: #FFFFFF;
+}
+
+.inputs_novo_post:focus {
+    border-bottom: 1.5px solid #8D50C7; /* Cor da borda ao focar */
+    outline: none; /* Remove o contorno padrão */
+}
+
+.bloco_icones {
+    display: flex;
+    margin-top: 15%;
+    margin-left: 65%;
+    width: 20%;
+    position: relative;
+    border: none;
+    padding: 2%;
+}
+
+.fundo {
+    background-color: rgba(0, 0, 0, 0.559);
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    display: none;
+    position: fixed;
+    opacity: 1;
+    top: 0;
+    left: 0;
 }
