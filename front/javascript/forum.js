@@ -1,134 +1,125 @@
-
 const quadro_postando = document.getElementById('quadro_postando');
 const botao_criar_post = document.querySelector('.botao');
-const quadro_formulario = document.getElementById('quadro_formulario')
+const quadro_formulario = document.getElementById('quadro_formulario');
 
-//Mostrar o quadro de postagem//
-//Rolar a página até o final//
-//Efeito de deixar o quadro mais para frente//
-botao_criar_post.onclick = function(){
-  quadro_postando.style.display = 'flex';
-  window.scrollTo(0, document.body.scrollHeight);
-  var fundo = document.getElementById('fundo')
-  fundo.style.display = 'block'
+// Mostrar o quadro de postagem, rolar a página até o final e exibir o fundo com destaque.
+// Ao clicar no botão de criar post, exibe o quadro de postagem e o fundo com efeito.
+botao_criar_post.onclick = function() {
+  quadro_postando.style.display = 'flex'; // Exibe o quadro de postagem.
+  window.scrollTo(0, document.body.scrollHeight); // Rola a página até o final.
+  var fundo = document.getElementById('fundo');
+  fundo.style.display = 'block'; // Exibe o fundo com efeito de sobreposição.
 };
 
-// Adicionar evento para fechar o quadro roxo ao clicar no fundo
+// Adicionar evento para fechar o quadro de postagem ao clicar no fundo.
 fundo.onclick = function () {
-  quadro_postando.style.display = 'none';
-  fundo.style.display = 'none';
+  quadro_postando.style.display = 'none'; // Oculta o quadro de postagem.
+  fundo.style.display = 'none'; // Oculta o fundo.
 };
 
+// Adicionar um evento ao clicar no formulário, ajustando a posição do quadro.
 quadro_formulario.addEventListener('click', function() {
   const novo_post = document.getElementById('novo_post');
-  novo_post.style.position = 'absolute';
-  novo_post.style.bottom = '0';
+  novo_post.style.position = 'absolute'; // Define a posição como absoluta.
+  novo_post.style.bottom = '0'; // Posiciona o post no final da página.
 });
 
-//Pegar os valores do quadro//
-//Criar um objeto com os dados do formulário//
-//Enviar os dados para o servidor//
+// Função para enviar os dados do formulário ao servidor.
 async function enviar() {
-  let titulo = document.getElementById("titulo").value;
-  let legenda = document.getElementById("legenda").value;
+  let titulo = document.getElementById("titulo").value; // Obtém o título.
+  let legenda = document.getElementById("legenda").value; // Obtém a legenda.
 
-    // Validação no frontend
-    if (!titulo || !legenda) {
-      alert("Por favor, preencha todos os campos!");
-      return;
-    }
+  // Validação simples no frontend para garantir que os campos não estejam vazios.
+  if (!titulo || !legenda) {
+    alert("Por favor, preencha todos os campos!");
+    return; // Sai da função se a validação falhar.
+  }
 
-  let dados = { titulo, legenda };
+  let dados = { titulo, legenda }; // Cria um objeto com os dados do formulário.
   console.log(dados);
 
+  // Envia os dados ao servidor via fetch.
   const response = await fetch('http://localhost:3020/api/store/forum', { 
-      method: "POST",
-      headers: { "Content-type": "application/json;charset=UTF-8" },
-      body: JSON.stringify(dados)
+    method: "POST",
+    headers: { "Content-type": "application/json;charset=UTF-8" }, // Define o tipo de conteúdo.
+    body: JSON.stringify(dados) // Converte o objeto em uma string JSON.
   });
 
   console.log("Dados enviados para a API:", dados);
 
   if (!response.ok) {
     throw new Error(`Erro HTTP! status: ${response.status}`);
-}
-const content = await response.json();
+  }
+
+  const content = await response.json(); // Lê a resposta do servidor.
   console.log(content);
 
   if (content.success) {
-      getPosts();
-      alert("Sua postagem foi realizada com sucesso!");
-      quadro_postando.style.display = 'none';
-      fundo.style.display = 'none';
+    getPosts(); // Atualiza os posts exibidos.
+    alert("Sua postagem foi realizada com sucesso!");
+    quadro_postando.style.display = 'none'; // Oculta o quadro de postagem.
+    fundo.style.display = 'none'; // Oculta o fundo.
   } else {
-      alert("Não foi possível realizar sua postagem!");
-      console.log(content.sql);
+    alert("Não foi possível realizar sua postagem!");
+    console.log(content.sql); // Exibe mensagens de erro relacionadas ao SQL no console.
   }
-};
+}
 
-//Selecionar o elemento 'sair' do quadro//
-//Adicionar o evento 'clique'//
+// Adiciona o evento para fechar o quadro de postagem ao clicar no botão "sair".
 const sair = document.getElementById('sair');
 
-sair.onclick = function(){
-  quadro_postando.style.display = 'none';
-  fundo.style.display = 'none';
+sair.onclick = function() {
+  quadro_postando.style.display = 'none'; // Oculta o quadro de postagem.
+  fundo.style.display = 'none'; // Oculta o fundo.
 };
 
-//Esperar a página carregar//
-//Buscar ports do servidor//
-//Ler a resposta do servidor//
-//Mostrar os dados no console//
-// document.addEventListener('DOMContentLoaded', async () => {
-  async function getPosts() {
-    const response = await fetch('http://localhost:3020/api/getposts');
-    const result = await response.json();
-    console.log("Resposta do servidor:", result);
+// Função para buscar posts do servidor ao carregar a página.
+async function getPosts() {
+  const response = await fetch('http://localhost:3020/api/getposts'); // Faz a requisição à API.
+  const result = await response.json(); // Lê a resposta em JSON.
+  console.log("Resposta do servidor:", result);
 
+  // Verifica se a resposta indica sucesso e exibe os posts.
+  if (result.success) {
+    const postagem_final = document.getElementById('post-container');
+    postagem_final.innerHTML = ""; // Limpa o contêiner antes de adicionar novos posts.
 
+    // Itera sobre cada post recebido do servidor e cria os elementos HTML dinamicamente.
+    result.data.forEach(post => {
+      const divCabecalho = document.createElement('div');
+      const ulCabecalho = document.createElement('ul');
+      const pPerfil = document.createElement('p');
+      const imgPerfil = document.createElement('img');
 
-    if (result.success) {
-        const postagem_final = document.getElementById('post-container');
-        postagem_final.innerHTML = ""; // Limpar o contêiner antes de adicionar novos posts
+      ulCabecalho.id = 'usuario';
+      imgPerfil.src = "../../img/icone usuario.svg"; // Ícone de usuário.
+      imgPerfil.className = "icone_usuario";
+      pPerfil.className = "perfil";
+      pPerfil.innerText = post.nome; // Nome do autor do post.
 
-        result.data.forEach(post => {
-            const divCabecalho = document.createElement('div');
-            const ulCabecalho = document.createElement('ul');
-            const pPerfil = document.createElement('p');
-            const imgPerfil = document.createElement('img');
+      ulCabecalho.appendChild(imgPerfil);
+      ulCabecalho.appendChild(pPerfil);
+      divCabecalho.appendChild(ulCabecalho);
 
-            ulCabecalho.id = 'usuario';
-            imgPerfil.src = "../../img/icone usuario.svg";
-            imgPerfil.className = "icone_usuario";
-            pPerfil.className = "perfil";
-            pPerfil.innerText = post.nome;
+      postagem_final.appendChild(divCabecalho);
 
-            ulCabecalho.appendChild(imgPerfil);
-            ulCabecalho.appendChild(pPerfil);
+      const divPost = document.createElement('div');
+      divPost.className = "post";
+      const divTextos = document.createElement('div');
+      divTextos.className = "textos";
+      const h2titulo = document.createElement('h2');
+      h2titulo.className = "titulo";
+      h2titulo.innerText = post.titulo; // Título do post.
+      const pLegenda = document.createElement('p');
+      pLegenda.className = "legenda";
+      pLegenda.innerText = post.legenda; // Legenda do post.
 
-            divCabecalho.appendChild(ulCabecalho);
+      divTextos.appendChild(h2titulo);
+      divTextos.appendChild(pLegenda);
+      divPost.appendChild(divTextos);
+      postagem_final.appendChild(divPost);
+    });
+  }
+}
 
-            postagem_final.appendChild(divCabecalho);
-
-            const divPost = document.createElement('div');
-            divPost.className = "post";
-            const divTextos = document.createElement('div');
-            divTextos.className = "textos";
-            const h2titulo = document.createElement('h2');
-            h2titulo.className = "titulo";
-            h2titulo.innerText = post.titulo;
-            const pLegenda = document.createElement('p');
-            pLegenda.className = "legenda";
-            pLegenda.innerText = post.legenda;
-
-            divTextos.appendChild(h2titulo);
-            divTextos.appendChild(pLegenda);
-
-            divPost.appendChild(divTextos);
-
-            postagem_final.appendChild(divPost);
-        });
-    }
-};
-
-getPosts();
+getPosts(); // Chama a função para buscar e exibir os posts ao carregar o script.
