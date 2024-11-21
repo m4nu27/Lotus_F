@@ -26,7 +26,7 @@ const deletePerfil = async (req, res) => {
 
     try {
         // Executa uma consulta SQL para deletar o usuário com o `id` especificado
-        const [result] = await db.query('DELETE FROM usuario WHERE id = ?', [id]);
+        const [result] = await db.promise().query('DELETE FROM usuario WHERE id = ?', [id]);
 
         // Verifica se alguma linha foi afetada (ou seja, se o `id` existia)
         if (result.affectedRows === 0) {
