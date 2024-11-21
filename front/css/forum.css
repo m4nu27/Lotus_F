@@ -92,19 +92,6 @@ h1 {
 /* já alterei daqui para cima */
 
 
-
-
-.link_pagina_nova {
-    display: flex;
-    align-items: center;
-    border: none;
-    background-color: #CCD5AE;
-    color: #597F34;
-    font-size: 12px;
-    text-decoration: none;
-    cursor: pointer;
-}
-
 .icone {
     margin-right: 10%;
     width: 80%;
@@ -117,24 +104,15 @@ h1 {
 }
 
 
-.pagina {
-    padding-top: 2%;
-    padding-left: 9%;
-    font-size: 150%;
-    color: #7381d4;
-    font-weight: bold;
-    text-decoration:underline;
-}
-
 .post {
     display: flex;
     flex-direction: column;
-    background-color: #CCD5AE;
+    background-color: #BA68C8;
     width: 70vw;
     margin-left: 2%;
     margin-top: 2%;
     margin-bottom: 10vh;
-    border-radius: 2vw;
+    border-radius: 15px;
     padding: 2%;
     align-items: center;   
 }
@@ -157,8 +135,8 @@ h1 {
 .titulo {
     display: inline-block;
     vertical-align: top;
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 20px;
+    font-weight: 600;
     margin-left: 2%;
     text-align: justify;
     letter-spacing: -1px;
@@ -170,6 +148,7 @@ h1 {
     vertical-align: top;
     margin-left: 2%;
     text-align: justify;
+    font-weight: 300;
 }
 
 .perfil {
@@ -212,13 +191,6 @@ h1 {
 
 }
 
-.img_botao{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 3vw;
-    color: #597F34;
-}
 
 
 #quadro_postando {
@@ -290,7 +262,9 @@ h1 {
 }
 
 #post-container{
-    color: #597F34;
+    color: #fff;
+    margin-top: 10%;
+    margin-left: 13%;
 }
 
 #novo_post{

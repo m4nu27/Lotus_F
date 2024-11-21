@@ -65,13 +65,13 @@ async function enviar() {
   }
 }
 
-// Adiciona o evento para fechar o quadro de postagem ao clicar no botão "sair".
-const sair = document.getElementById('sair');
+// // Adiciona o evento para fechar o quadro de postagem ao clicar no botão "sair".
+// const sair = document.getElementById('sair');
 
-sair.onclick = function() {
-  quadro_postando.style.display = 'none'; // Oculta o quadro de postagem.
-  fundo.style.display = 'none'; // Oculta o fundo.
-};
+// sair.onclick = function() {
+//   quadro_postando.style.display = 'none'; // Oculta o quadro de postagem.
+//   fundo.style.display = 'none'; // Oculta o fundo.
+// };
 
 // Função para buscar posts do servidor ao carregar a página.
 async function getPosts() {
@@ -91,17 +91,6 @@ async function getPosts() {
       const pPerfil = document.createElement('p');
       const imgPerfil = document.createElement('img');
 
-      ulCabecalho.id = 'usuario';
-      imgPerfil.src = "../../img/icone usuario.svg"; // Ícone de usuário.
-      imgPerfil.className = "icone_usuario";
-      pPerfil.className = "perfil";
-      pPerfil.innerText = post.nome; // Nome do autor do post.
-
-      ulCabecalho.appendChild(imgPerfil);
-      ulCabecalho.appendChild(pPerfil);
-      divCabecalho.appendChild(ulCabecalho);
-
-      postagem_final.appendChild(divCabecalho);
 
       const divPost = document.createElement('div');
       divPost.className = "post";

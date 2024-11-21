@@ -22,7 +22,7 @@ async function storeForum(request, response) {
 
     try {
         // Executa a consulta SQL usando o pool de conexões
-        const [results] = await pool.query(query, [titulo, legenda]);
+        const [results] = await pool.promise().query(query, [titulo, legenda]);
 
         // Caso a inserção seja bem-sucedida
         return response.status(200).json({
@@ -49,7 +49,7 @@ async function getPost(request, response) {
 
     try {
         // Executa a consulta SQL usando o pool de conexões
-        const [results] = await pool.query(query);
+        const [results] = await pool.promise().query(query);
 
         // Caso a consulta seja bem-sucedida
         return response.status(200).json({

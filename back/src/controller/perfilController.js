@@ -5,7 +5,7 @@ const db = require('../config/db.js');
 const getPerfis = async (req, res) => {
     try {
         // Executa uma consulta SQL para buscar os campos `id`, `nome` e `email` da tabela `usuario`
-        const [rows] = await db.query('SELECT id, nome, email FROM usuario');
+        const [rows] = await db.promise().query('SELECT id, nome, email FROM usuario');
         
         // Retorna os resultados em formato JSON
         // Garante que retorna sempre um array (mesmo que vazio) para evitar problemas no cliente
