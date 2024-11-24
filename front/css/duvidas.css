@@ -73,6 +73,10 @@ h2 {
     margin-bottom: 20px;
 }
 
+h3{
+    color: #333;
+}
+
 
 details {
     display: block; 
